@@ -17,6 +17,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     var locationManager = CLLocationManager()
     var authorisationStatus = CLLocationManager.authorizationStatus()
     var radius:Double = 1000
+    var type:Bool?
     var cooArr = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
@@ -93,7 +94,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         
         
         mapView.addAnnotation(annotation)
-        
+        mapView.removeOverlays(mapView.overlays)
         
         
     }
@@ -125,8 +126,13 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
        
         destinationRequest.source = finalSource
         destinationRequest.destination = finalDestination
-        
-        destinationRequest.transportType = .automobile
+        if type == true{
+          destinationRequest.transportType = .walking
+        }
+        if type == false{
+            
+            destinationRequest.transportType = .automobile
+        }
         
         
         let direction = MKDirections(request: destinationRequest)
@@ -165,6 +171,27 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     
     @IBAction func carButtonPressed(_ sender: UIButton) {
+        
+      
+        
+//        if type == false {
+//            
+//            automobileButton.setTitle("Car", for: .normal)
+//            type = true
+//        }
+//        
+//        else if type == true{
+//            
+//             automobileButton.setTitle("Walk", for: .normal)
+//            
+//            type = false
+//        }
+        
+        
+        
+        
+        
+        
     }
     
     
