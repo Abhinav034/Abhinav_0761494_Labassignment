@@ -13,6 +13,7 @@
 		44D2D12223CE62AB0047D1F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D2D12023CE62AB0047D1F9 /* Main.storyboard */; };
 		44D2D12423CE62AD0047D1F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D2D12323CE62AD0047D1F9 /* Assets.xcassets */; };
 		44D2D12723CE62AD0047D1F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D2D12523CE62AD0047D1F9 /* LaunchScreen.storyboard */; };
+		44D2D12F23CE68F20047D1F9 /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2D12E23CE68F20047D1F9 /* Annotations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		44D2D12323CE62AD0047D1F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D2D12623CE62AD0047D1F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D2D12823CE62AD0047D1F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D2D12E23CE68F20047D1F9 /* Annotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				44D2D12323CE62AD0047D1F9 /* Assets.xcassets */,
 				44D2D12523CE62AD0047D1F9 /* LaunchScreen.storyboard */,
 				44D2D12823CE62AD0047D1F9 /* Info.plist */,
+				44D2D12E23CE68F20047D1F9 /* Annotations.swift */,
 			);
 			path = Abhinav_0761494_Labassignment;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				44D2D11F23CE62AB0047D1F9 /* ViewController.swift in Sources */,
 				44D2D11B23CE62AB0047D1F9 /* AppDelegate.swift in Sources */,
+				44D2D12F23CE68F20047D1F9 /* Annotations.swift in Sources */,
 				44D2D11D23CE62AB0047D1F9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
