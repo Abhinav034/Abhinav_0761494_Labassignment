@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController , UIGestureRecognizerDelegate {
+class ViewController: UIViewController , UIGestureRecognizerDelegate  {
 
     @IBOutlet weak var automobileButton: UIButton!
     
@@ -26,13 +26,12 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-         if authorisationStatus == .authorizedAlways || authorisationStatus == .authorizedWhenInUse{
-                   let region = locationManager.location?.coordinate
-                         
-                         let regioncoordinate = MKCoordinateRegion(center: region!, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
-                         
-                         mapView.setRegion(regioncoordinate, animated: true)
-               }
+        
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        
+
+        
         
         locationManager.delegate = self
         mapView.delegate = self
@@ -46,6 +45,15 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         automobileButton.layer.cornerRadius = automobileButton.bounds.height/2
         
         
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+                           let region = locationManager.location?.coordinate
+        
+                                 let regioncoordinate = MKCoordinateRegion(center: region!, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
+        
+                                 mapView.setRegion(regioncoordinate, animated: true)
+                       
     }
     
     func Longpress(){
