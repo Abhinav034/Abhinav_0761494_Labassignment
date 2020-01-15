@@ -137,6 +137,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
         
     }
     
+    //MARK: getting Direction
+    
     func getDirection(destination:CLLocationCoordinate2D ){
         
         
@@ -193,7 +195,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
                 return
             }
             let route = responce.routes[0]
-            
+        
             self.mapView.addOverlay(route.polyline, level: .aboveRoads)
             self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
             
@@ -228,7 +230,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
       
         userLoacation()
         
-        
+        mapView.removeOverlays(mapView.overlays)
         
         
     }
@@ -272,9 +274,13 @@ extension ViewController: MKMapViewDelegate{
         if overlay is MKPolyline {
 
             let render = MKPolylineRenderer(overlay: overlay)
-
-            render.strokeColor = UIColor.blue
-
+           
+            
+                render.strokeColor = UIColor.blue
+                
+            
+            
+            
             render.lineWidth = 4
 
             return render
