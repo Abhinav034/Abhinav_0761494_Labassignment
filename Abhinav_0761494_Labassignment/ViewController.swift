@@ -18,7 +18,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
-  //  var authorisationStatus = CLLocationManager.authorizationStatus()
+    var authorisationStatus = CLLocationManager.authorizationStatus()
     var radius:Double = 1000
     var type:Bool?
     var cooArr = [CLLocationCoordinate2D]()
@@ -26,11 +26,13 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let region = locationManager.location?.coordinate
-        
-        let regioncoordinate = MKCoordinateRegion(center: region!, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
-        
-        mapView.setRegion(regioncoordinate, animated: true)
+         if authorisationStatus == .authorizedAlways || authorisationStatus == .authorizedWhenInUse{
+                   let region = locationManager.location?.coordinate
+                         
+                         let regioncoordinate = MKCoordinateRegion(center: region!, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
+                         
+                         mapView.setRegion(regioncoordinate, animated: true)
+               }
         
         locationManager.delegate = self
         mapView.delegate = self
