@@ -18,7 +18,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
-    var authorisationStatus = CLLocationManager.authorizationStatus()
+  //  var authorisationStatus = CLLocationManager.authorizationStatus()
     var radius:Double = 1000
     var type:Bool?
     var cooArr = [CLLocationCoordinate2D]()
@@ -28,19 +28,21 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         super.viewDidLoad()
         locationManager.delegate = self
         mapView.delegate = self
+        
         configureLocation()
-        userLocation()
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         doubleTap()
-        tripleTap()
+        Longpress()
+        //userLoacation()
         automobileButton.layer.cornerRadius = automobileButton.bounds.height/2
         
         
     }
     
-    func tripleTap(){
+    func Longpress(){
         
-        let tripleTap = UILongPressGestureRecognizer(target: self, action: #selector(userTripletapped))
+        let tripleTap = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
       
         
         tripleTap.delegate = self
@@ -51,7 +53,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         
     }
     
-    @objc func userTripletapped(){
+    @objc func longPressed(){
         
         
        
@@ -195,13 +197,20 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     }
     
     
+    func userLoacation(){
+        
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
+        
+        mapView.setRegion(region, animated: true)
+        
+    }
+    
+    
     
     @IBAction func carButtonPressed(_ sender: UIButton) {
         
       
-            userLocation()
-        
-        
+        userLoacation()
         
         
         
@@ -241,20 +250,7 @@ extension ViewController: MKMapViewDelegate{
     
     
     
-    func userLocation (){
-        
-        if authorisationStatus == .authorizedAlways || authorisationStatus == .authorizedWhenInUse{
-            
-            let coordinate = locationManager.location?.coordinate
-            let coordinateRegion = MKCoordinateRegion(center: coordinate!, latitudinalMeters: radius*2, longitudinalMeters: radius*2)
-            
-            
-            mapView.setRegion(coordinateRegion, animated: true)
-            
-        }
-        
-        
-    }
+    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolyline {
