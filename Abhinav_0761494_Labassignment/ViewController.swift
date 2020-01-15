@@ -233,7 +233,6 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
       
         userLoacation()
         
-        mapView.removeOverlays(mapView.overlays)
         
         
     }
