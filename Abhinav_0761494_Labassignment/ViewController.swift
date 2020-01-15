@@ -20,7 +20,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
     var locationManager = CLLocationManager()
     var authorisationStatus = CLLocationManager.authorizationStatus()
     var radius:Double = 1000
-    var type:Bool?
+    var color:Bool = false
+    var type:Bool = false
     var cooArr = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
@@ -92,6 +93,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
     @IBAction func walkButtonPressed(_ sender: UIButton) {
         
         type = true
+        color = true
         if mapView.annotations.count > 1{
             getDirection(destination: cooArr.last!)
         }
@@ -173,6 +175,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate  {
             
         destinationRequest.transportType = .walking
         
+        type = false
         
         }
         
@@ -275,8 +278,14 @@ extension ViewController: MKMapViewDelegate{
 
             let render = MKPolylineRenderer(overlay: overlay)
            
-            
-                render.strokeColor = UIColor.blue
+            if color == true{
+                render.strokeColor = UIColor.red
+                color = false
+            }
+            else{
+               render.strokeColor = UIColor.blue
+            }
+                
                 
             
             
