@@ -14,6 +14,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     @IBOutlet weak var zoomLabel: UILabel!
     
+    @IBOutlet weak var walkButton: UIButton!
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
@@ -70,6 +71,16 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     
     
+    @IBAction func walkButtonPressed(_ sender: UIButton) {
+        
+        type = true
+        if mapView.annotations.count > 1{
+            getDirection(destination: cooArr.last!)
+        }
+       
+        
+        
+    }
     
     
     
@@ -135,13 +146,19 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
        
         destinationRequest.source = finalSource
         destinationRequest.destination = finalDestination
-       // if type == true{
-          destinationRequest.transportType = .automobile
-       // }
-       // if type == false{
+      
+         
+       
+       if type == true{
             
-           // destinationRequest.transportType = .automobile
-       // }
+        destinationRequest.transportType = .walking
+        
+        
+        }
+        
+       else{
+         destinationRequest.transportType = .automobile
+        }
         
         
         let direction = MKDirections(request: destinationRequest)

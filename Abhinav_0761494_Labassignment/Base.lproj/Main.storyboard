@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muo-cC-dlu">
-                                <rect key="frame" x="301" y="58" width="50" height="50"/>
+                                <rect key="frame" x="305" y="58" width="50" height="50"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7Dm-Qd-ccK"/>
@@ -65,21 +65,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-9q-tK5">
+                                <rect key="frame" x="16" y="597" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="OqE-S1-GnD"/>
+                                    <constraint firstAttribute="width" constant="40" id="c61-sW-AdY"/>
+                                </constraints>
+                                <state key="normal" image="walk"/>
+                                <connections>
+                                    <action selector="walkButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVh-nC-LYA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="94C-1h-k4m" secondAttribute="trailing" id="85y-LG-NNF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pI0-MI-7ec" secondAttribute="bottom" constant="20" id="A5M-mB-N6c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pI0-MI-7ec" secondAttribute="trailing" constant="16" id="CD8-2i-NPe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iAn-9q-tK5" secondAttribute="bottom" constant="30" id="Q4x-3o-poT"/>
                             <constraint firstItem="94C-1h-k4m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="REx-Gr-UuK"/>
                             <constraint firstItem="bha-c4-1Ae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aZQ-UQ-aWs"/>
                             <constraint firstItem="94C-1h-k4m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dky-O6-fDo"/>
                             <constraint firstItem="uyv-fq-PXR" firstAttribute="top" secondItem="bha-c4-1Ae" secondAttribute="bottom" constant="15" id="eBZ-Ps-ulb"/>
+                            <constraint firstItem="iAn-9q-tK5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hl2-Le-IrU"/>
                             <constraint firstItem="bha-c4-1Ae" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hva-eW-AHU"/>
                             <constraint firstItem="uyv-fq-PXR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jow-jW-IUj"/>
                             <constraint firstItem="Muo-cC-dlu" firstAttribute="top" secondItem="bha-c4-1Ae" secondAttribute="bottom" constant="8" id="uaN-kl-rNG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="94C-1h-k4m" secondAttribute="bottom" id="vcj-ts-itA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Muo-cC-dlu" secondAttribute="trailing" constant="24" id="vqJ-C1-xVz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Muo-cC-dlu" secondAttribute="trailing" constant="20" id="vqJ-C1-xVz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bha-c4-1Ae" secondAttribute="trailing" id="zdg-fF-GSp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -87,6 +100,7 @@
                     <connections>
                         <outlet property="automobileButton" destination="Muo-cC-dlu" id="FuJ-Sd-dJP"/>
                         <outlet property="mapView" destination="94C-1h-k4m" id="EUr-bG-9FP"/>
+                        <outlet property="walkButton" destination="iAn-9q-tK5" id="3wI-EM-IEu"/>
                         <outlet property="zoomLabel" destination="uyv-fq-PXR" id="bfk-3Z-8sI"/>
                     </connections>
                 </viewController>
@@ -98,5 +112,6 @@
     <resources>
         <image name="locationButton" width="67" height="67"/>
         <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="walk" width="128" height="128"/>
     </resources>
 </document>
