@@ -26,6 +26,12 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        let region = locationManager.location?.coordinate
+        
+        let regioncoordinate = MKCoordinateRegion(center: region!, latitudinalMeters: 1000*2, longitudinalMeters: 1000*2)
+        
+        mapView.setRegion(regioncoordinate, animated: true)
+        
         locationManager.delegate = self
         mapView.delegate = self
         
@@ -34,7 +40,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         doubleTap()
         Longpress()
-        //userLoacation()
+        
         automobileButton.layer.cornerRadius = automobileButton.bounds.height/2
         
         
@@ -207,7 +213,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     
     
     
-    @IBAction func carButtonPressed(_ sender: UIButton) {
+    @IBAction func carButtonPressed(_ sender: UIButton) {       // plus Button in View
         
       
         userLoacation()
