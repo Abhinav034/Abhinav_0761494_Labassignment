@@ -42,15 +42,29 @@
                                     <constraint firstItem="ovE-JL-GBV" firstAttribute="centerX" secondItem="bha-c4-1Ae" secondAttribute="centerX" id="zH1-zH-tRr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muo-cC-dlu">
-                                <rect key="frame" x="321" y="58" width="30" height="30"/>
-                                <state key="normal" title="Car">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Muo-cC-dlu">
+                                <rect key="frame" x="301" y="58" width="50" height="50"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="7Dm-Qd-ccK"/>
+                                    <constraint firstAttribute="height" constant="50" id="Cvq-mD-89h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="plus" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="carButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQa-qM-hVH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longpress to zoom out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyv-fq-PXR">
+                                <rect key="frame" x="16" y="65" width="278.5" height="37"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -60,7 +74,9 @@
                             <constraint firstItem="94C-1h-k4m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="REx-Gr-UuK"/>
                             <constraint firstItem="bha-c4-1Ae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aZQ-UQ-aWs"/>
                             <constraint firstItem="94C-1h-k4m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dky-O6-fDo"/>
+                            <constraint firstItem="uyv-fq-PXR" firstAttribute="top" secondItem="bha-c4-1Ae" secondAttribute="bottom" constant="15" id="eBZ-Ps-ulb"/>
                             <constraint firstItem="bha-c4-1Ae" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hva-eW-AHU"/>
+                            <constraint firstItem="uyv-fq-PXR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jow-jW-IUj"/>
                             <constraint firstItem="Muo-cC-dlu" firstAttribute="top" secondItem="bha-c4-1Ae" secondAttribute="bottom" constant="8" id="uaN-kl-rNG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="94C-1h-k4m" secondAttribute="bottom" id="vcj-ts-itA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Muo-cC-dlu" secondAttribute="trailing" constant="24" id="vqJ-C1-xVz"/>
@@ -71,6 +87,7 @@
                     <connections>
                         <outlet property="automobileButton" destination="Muo-cC-dlu" id="FuJ-Sd-dJP"/>
                         <outlet property="mapView" destination="94C-1h-k4m" id="EUr-bG-9FP"/>
+                        <outlet property="zoomLabel" destination="uyv-fq-PXR" id="bfk-3Z-8sI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -80,5 +97,6 @@
     </scenes>
     <resources>
         <image name="locationButton" width="67" height="67"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

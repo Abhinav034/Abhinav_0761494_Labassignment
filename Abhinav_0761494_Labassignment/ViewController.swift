@@ -12,6 +12,8 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
 
     @IBOutlet weak var automobileButton: UIButton!
     
+    @IBOutlet weak var zoomLabel: UILabel!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
@@ -30,7 +32,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         doubleTap()
         tripleTap()
-        
+        automobileButton.layer.cornerRadius = automobileButton.bounds.height/2
         
         
     }
@@ -43,8 +45,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         tripleTap.delegate = self
         
         mapView.addGestureRecognizer(tripleTap)
-        
-        
+       
         
         
     }
@@ -52,8 +53,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     @objc func userTripletapped(){
         
         
-       // let latitude = mapView.userLocation.coordinate.latitude
-       // let longitude = mapView.userLocation.coordinate.longitude
+       
     
         
         let coordinates = mapView.userLocation.coordinate
@@ -61,8 +61,16 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 100000*2, longitudinalMeters: 100000*2)
         
         mapView.setRegion(region, animated: true)
+        zoomLabel.isHidden = true
+        
         
     }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -94,6 +102,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
         
         
         mapView.addAnnotation(annotation)
+        
         mapView.removeOverlays(mapView.overlays)
         
         
@@ -126,13 +135,13 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
        
         destinationRequest.source = finalSource
         destinationRequest.destination = finalDestination
-        if type == true{
-          destinationRequest.transportType = .walking
-        }
-        if type == false{
+       // if type == true{
+          destinationRequest.transportType = .automobile
+       // }
+       // if type == false{
             
-            destinationRequest.transportType = .automobile
-        }
+           // destinationRequest.transportType = .automobile
+       // }
         
         
         let direction = MKDirections(request: destinationRequest)
@@ -173,19 +182,7 @@ class ViewController: UIViewController , UIGestureRecognizerDelegate {
     @IBAction func carButtonPressed(_ sender: UIButton) {
         
       
-        
-//        if type == false {
-//            
-//            automobileButton.setTitle("Car", for: .normal)
-//            type = true
-//        }
-//        
-//        else if type == true{
-//            
-//             automobileButton.setTitle("Walk", for: .normal)
-//            
-//            type = false
-//        }
+            userLocation()
         
         
         
